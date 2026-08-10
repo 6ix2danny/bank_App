@@ -28,8 +28,6 @@ public class Main {
         Admin admin = new Admin("admin", "admin123");
         usersByUsername.put(admin.getUsername(), admin);
 
-        // Create customers directly; each Customer IS-A User, so it goes
-        // straight into the same map used for login lookups.
         Customer daniel = new Customer(customerCounter++, "Daniel", new ArrayList<>(), "daniel", "daniel123");
         Customer dan = new Customer(customerCounter++, "Dan", new ArrayList<>(), "dan", "dan123");
         Customer danny = new Customer(customerCounter++, "Danny", new ArrayList<>(), "danny", "danny123");
@@ -102,6 +100,7 @@ public class Main {
             return 0;
         }
     }
+}
 
 // Base class for anyone who can log in. Fields are now private with getters
 // (better encapsulation than exposing raw public fields), and it declares
@@ -480,5 +479,4 @@ class SavingsAccount extends Account {
     String getAccountType() {
         return "SavingsAccount";
     }
-}
 }
