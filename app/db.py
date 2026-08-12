@@ -1,6 +1,4 @@
-"""
-Mongo connection handling.
-"""
+
 
 from pymongo import MongoClient, ReturnDocument
 
