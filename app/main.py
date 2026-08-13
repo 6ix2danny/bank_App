@@ -5,6 +5,7 @@ http://127.0.0.1:8000/docs
 from fastapi import APIRouter, FastAPI, Request
 from fastapi.encoders import jsonable_encoder
 from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.controllers import (
@@ -18,6 +19,13 @@ app = FastAPI(
     title="Daniel's Digital Bank API",
     description="REST API for managing customers, accounts, branches, and transactions.",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 

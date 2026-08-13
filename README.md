@@ -39,3 +39,16 @@ All routes are under `/api/v1`.
 - `POST /transactions/transfer`, `GET /transactions`
 
 Filtering/sorting via query params, e.g. `GET /accounts?branch_id=1&min_balance=1000` or `GET /transactions?start_date=2026-01-01&type=TRANSFER`.
+
+## Frontend
+
+A React (Vite + TypeScript) UI in `frontend/` consumes this API — Customers, Accounts, Branches, and Transactions pages with filtering, creation forms, and account/transfer actions.
+
+```
+cd frontend
+npm install
+cp .env.example .env   # VITE_API_BASE_URL, defaults to http://127.0.0.1:8000/api/v1
+npm run dev
+```
+
+Runs at http://localhost:5173. The backend must be running (`uvicorn app.main:app --reload`) and its CORS config in `app/main.py` must allow the frontend's origin.
